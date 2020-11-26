@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Calculator from "../views/Calculator.vue";
-import Fetching from "../views/Fetching.vue";
 
 const routes = [
   {
@@ -17,7 +16,8 @@ const routes = [
   {
     path: "/fetching",
     name: "Fetching",
-    component: Fetching
+    component: () =>
+      import("../views/Fetching.vue")
   },
   {
     path: "/about",

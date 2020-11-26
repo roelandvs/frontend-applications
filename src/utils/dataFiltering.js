@@ -54,10 +54,17 @@ export function filterGeoLocations(dataset) {
   });
 };
 
-export function mergeGeoData(RDWdataset, geoDataset) {
+export async function mergeGeoData(RDWdataset, geoDataset) {
+  // const geoDatasets = await fetch("http://209.250.254.119")
+  //   .then(response => response.json())
+
+  // console.log(geoDatasets)
+
   return RDWdataset.reduce((acc, cur, i) => {
     const mergedItem = {...cur, ...geoDataset[i]};
-    acc.push(mergedItem);
+    if(i <= 1002) {
+      acc.push(mergedItem);
+    }
     return acc;
   }, []);
 };
@@ -66,7 +73,6 @@ export function filterAllEntries(dataset) {
   return dataset.map(item => {
     let city;
 
-    console.log(item)
     if(item.cityInfo.town) {
       city = item.cityInfo.town;
     } else if(item.cityInfo.village) {
