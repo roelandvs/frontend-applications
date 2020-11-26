@@ -56,14 +56,15 @@ export function filterGeoLocations(dataset) {
   });
 };
 
-export async function mergeGeoData(RDWdataset) {
-  const geoDatasets = await fetch("http://209.250.254.119")
-    .then(response => response.json())
+export async function mergeGeoData(RDWdataset, geoData) {
+  // const geoDatasets = await fetch("http://209.250.254.119")
+  //   .then(response => response.json())
+
   // console.log('geo', geoDatasets)
   // console.log('RDW', RDWdataset)
 
   return RDWdataset.map(entry => {
-    let geoItem = geoDatasets.find(
+    let geoItem = geoData.find(
       item => item.id === entry.areaid
     );
 
@@ -83,8 +84,6 @@ export async function mergeGeoData(RDWdataset) {
 };
 
 export function filterAllEntries(dataset) {
-  // console.log(dataset)
-
   return dataset.map(item => {
     let city;
 
@@ -113,7 +112,6 @@ export function filterAllEntries(dataset) {
 };
 
 export function mergeCities(dataset) {
-  console.log(dataset)
   return dataset.reduce((acc, cur) => {
     let city = cur.city;
     let capacity = cur.capacity;

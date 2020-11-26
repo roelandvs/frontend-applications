@@ -42,7 +42,7 @@ import {
  } from "@/utils/dataFiltering.js";
 
  import Graph from "@/components/Graph.vue";
- // import { geoData } from "@/data/geodata";
+ import geoData from "@/assets/geoData.json";
  import { ref } from "vue";
  // import { onMounted } from "@vue/runtime-core";
 
@@ -71,7 +71,7 @@ export default {
       .then(RDWData => filterEntries(RDWData, usefullColumns))
       .then(mergeObjects)
       .then(filterGeoLocations)
-      .then(RDWFilteredData => mergeGeoData(RDWFilteredData))
+      .then(RDWFilteredData => mergeGeoData(RDWFilteredData, geoData))
       .then(filterAllEntries)
       .then(mergeCities)
       .then(mergeStates)
