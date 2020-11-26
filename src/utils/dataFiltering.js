@@ -35,11 +35,13 @@ export function mergeObjects(dataset) {
       );
 
       if (locationItem) {
-        const mergedItem = { ...entry, ...locationItem };
+        const mergedItem = { ...entry, ...locationItem};
         return mergedItem;
       }
-    })
-    .filter(entry => entry !== undefined);
+    }).filter(entry => entry !== undefined)
+    .reduce((acc, curr) => {
+      return acc.find(item => curr.areaid === item.areaid) ? acc : [...acc, curr]
+    }, []);
 }
 
 export function filterGeoLocations(dataset) {
@@ -54,31 +56,47 @@ export function filterGeoLocations(dataset) {
   });
 };
 
-export async function mergeGeoData(RDWdataset, geoDataset) {
-  // const geoDatasets = await fetch("http://209.250.254.119")
-  //   .then(response => response.json())
+export async function mergeGeoData(RDWdataset) {
+  const geoDatasets = await fetch("http://209.250.254.119")
+    .then(response => response.json())
+  // console.log('geo', geoDatasets)
+  // console.log('RDW', RDWdataset)
 
-  // console.log(geoDatasets)
+  return RDWdataset.map(entry => {
+    let geoItem = geoDatasets.find(
+      item => item.id === entry.areaid
+    );
 
-  return RDWdataset.reduce((acc, cur, i) => {
-    const mergedItem = {...cur, ...geoDataset[i]};
-    if(i <= 1002) {
-      acc.push(mergedItem);
+    if (geoItem) {
+      const mergedItem = { ...entry, ...geoItem};
+      return mergedItem;  
     }
-    return acc;
-  }, []);
+  }).filter(entry => entry !== undefined);
+
+  // return RDWdataset.reduce((acc, cur, i) => {
+  //   const mergedItem = {...cur, ...geoDataset[i]};
+  //   if(i <= 1002) {
+  //     acc.push(mergedItem);
+  //   }
+  //   return acc;
+  // }, []);
 };
 
 export function filterAllEntries(dataset) {
+  // console.log(dataset)
+
   return dataset.map(item => {
     let city;
 
     if(item.cityInfo.town) {
       city = item.cityInfo.town;
+      // console.log('town', city)
     } else if(item.cityInfo.village) {
       city = item.cityInfo.village;
-    } else {
+      // console.log('village', city)
+    } else if(item.cityInfo.city){
       city = item.cityInfo.city;
+      // console.log('city', city)
     }
 
     let cleanObject = {
@@ -95,6 +113,7 @@ export function filterAllEntries(dataset) {
 };
 
 export function mergeCities(dataset) {
+  // console.log(dataset)
   return dataset.reduce((acc, cur) => {
     let city = cur.city;
     let capacity = cur.capacity;

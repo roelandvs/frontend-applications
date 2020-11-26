@@ -28,4 +28,37 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+h3 {
+  margin: 5px 0 5px 10px;
+  text-align: left;
+}
+
+.tooltip {
+  pointer-events: none;
+  position: absolute;
+  font-weight: 400;
+  padding: 2px 2px 22px 2px;
+  background-color: white;
+  border: 2px solid lightgrey;
+  border-radius: 10px;
+  transition: 0.5s all;
+}
+
+.tooltip > p {
+  margin: 0 0 -20px 0;
+  padding: 0px 10px;
+  background-color: white;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.rect:hover {
+  transition: 0.5s all;
+  fill: orange;
+}
+
+
 </style>

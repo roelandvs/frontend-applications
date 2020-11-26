@@ -18,7 +18,7 @@ import {
  } from "@/utils/dataFiltering.js";
 
  import Graph from "@/components/Graph.vue";
- import { geoData } from "@/data/geodata";
+ // import { geoData } from "@/data/geodata";
  import { ref } from "vue";
  // import { onMounted } from "@vue/runtime-core";
 
@@ -47,14 +47,15 @@ export default {
       .then(RDWData => filterEntries(RDWData, usefullColumns))
       .then(mergeObjects)
       .then(filterGeoLocations)
-      .then(RDWFilteredData => mergeGeoData(RDWFilteredData, geoData))
+      .then(RDWFilteredData => mergeGeoData(RDWFilteredData))
       .then(filterAllEntries)
       .then(mergeCities)
       .then(mergeStates)
       .then(completedData => {
         data.value = completedData;
       })
-      // .catch(error => console.log(error))
+      // .then(console.log)
+      .catch(error => console.log(error))
 
       return { data };
   }

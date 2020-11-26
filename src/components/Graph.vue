@@ -37,15 +37,15 @@ export default {
       //target is the source of event
       if (e.target.innerText === "Steden") {
         this.currentColumn = "Steden"
-        console.log(this.currentColumn)
+        // console.log('Steden')
       } else {
         this.currentColumn = "Provincies"
-        console.log(this.currentColumn)
+        // console.log('Provincies')
       }
     }
   },
   setup() {
-    let currentColumn = ref("Steden")
+    let currentColumn = ref("Steden");
     return {
       currentColumn
     };
@@ -61,12 +61,15 @@ export default {
     const g = svg.append('g')
       .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-    g.append('g').attr('class', 'axis-left')
+    g.append('g').attr('class', 'axis-left');
     g.append('g').attr('class', 'axis-bottom');
+
+    select('#app')
+      .append('div')
+      .attr('class', 'tooltip')
+      .style('opacity', 0);
   },
   updated() {
-    // If there is no data (length of data array is 0), stop the function by returning immediately
-    if (!this.data.length) return
     let column = this.currentColumn;
     // Selects which dataset is being used
     let data = column === 'Steden' ? this.data[0] : this.data[1]
@@ -108,10 +111,21 @@ export default {
         .attr('width', row => xScale(row.capacity))
         .attr('height', yScale.bandwidth())
         .attr('fill', 'coral')
-        .attr('class', 'rect')
-        //.mouseover + datameegeven
+        .attr('class', 'rect');
 
-    g.append('text')
+    g.selectAll(".rect")
+      .on("mouseover", (e, data) => {
+        console.log(data)
+        select('.tooltip').html('<h3>Parkeerlocaties:</h3>' + `${data.parkingAreas.map(item =>'<p>' + item.road + ' (' + item.postcode + ')' + ': ' + item.capacity + '</p>')}`)
+        .style('left', `${e.pageX}px`)
+        .style('top', `${e.pageY - 28}px`)
+        .style('opacity', .9)
+      })
+      .on("mouseout", () => {
+        select('.tooltip').style('opacity', 0);
+      });
+
+   g.append('text')
   }
 };
 </script>
