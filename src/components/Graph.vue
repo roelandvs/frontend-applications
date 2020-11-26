@@ -103,7 +103,7 @@ export default {
         .attr('y', 50)
         .attr('x', innerHeight / 2 + 90)
         .attr('class', 'label')
-        .text('Aantal parkeerplaatsen')
+        .text('Aantal parkeerplaatsen (rolstoel toegankelijk)')
 
     g.selectAll('rect').data(data)
       //join is enter update and remove combined    

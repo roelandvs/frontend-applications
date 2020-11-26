@@ -113,7 +113,7 @@ export function filterAllEntries(dataset) {
 };
 
 export function mergeCities(dataset) {
-  // console.log(dataset)
+  console.log(dataset)
   return dataset.reduce((acc, cur) => {
     let city = cur.city;
     let capacity = cur.capacity;

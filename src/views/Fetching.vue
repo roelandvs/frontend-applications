@@ -1,21 +1,30 @@
 <template>
   <section>
-    <h1>Parkeerplaatsen moeten toegankelijker worden voor rolstoelgangers</h1>
+    <h1>Moeten parkeerplaatsen toegankelijker worden voor rolstoelgangers?</h1>
     <p>
-      Uit data van de RDW blijkt dat slechts een zeer klein deel van alle parkeergebieden toegankelijk is met een rolstoel. Uit de data blijkt dat er slechts 
+      Uit cijfers van het RDW blijkt dat slechts een klein deel van alle parkeergebieden toegankelijk zijn met een rolstoel (parkeergebieden bestaan uit parkeerterreinen en parkeergarages). Er zijn slechts 54 van de 989 parkeergebieden rond Nederland toegankelijk met een rolstoel (in de dataset. Dit lijkt in eerste instantie erg weinig, maar is dit ook zo?
     </p>
   </section>
   <section>
-    <h2>Nieuwe dingen</h2>
+    <h2>Aantal rolstoelgebruikers</h2>
     <p>
-       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in t
+       Volgens de GIP databank waren er in 2019 ruim 125.000 rolstoelgebruikers in Nederland. Dit gaat wel over mensen die constant in een rolstoel zitten. In Nederland zit dus ongeveer  0,7% van de inwoners in een rolstoel. Als je dit vergelijkt met het percentage rolstoeltoegankelijke parkeergebieden (5,5%) lijkt de verhouding niet heel nadelig te zijn. Dit percentage zegt echter niks over de verdeling rond Nederland. 
     </p>
       <Graph 
         :data="data"
       />
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      De verdeling van parkeergebieden per stad schets een meer nadelig beeld voor rolstoelgebruikers. Zo zijn er wel meerdere parkeerplaatsen in een stad, maar vaak zijn deze over slechts een of enkele parkeerterreinen verdeeld. Als je naar de datavisualisatie kijkt kun je zien dat er in Rotterdam slechts 2 parkeerterreinen toegankelijk zijn met een rolstoel. Dit is niet veel om afhankelijk van te zijn.
     </p>
+
+    <p>
+      De reden dat niet elk parkeergebied toegankelijk is met een rolstoel is omdat een parkeerplaats 1,5 keer zo breed moet zijn. Dit is nadelig voor een parkeerplaats eigenaar aangezien dit meer ruimte in neemt. Een oplossing voor dit probleem zou kunnen zijn om een aantal parkeerplaatsen per parkeerterrein te moeten aanleggen. 
+    </p>
+  </section>
+
+  <section>
+    <h2>Conclusie</h2>
+    <p>Of er een tekort is aan rolstoel toegankelijke parkeerplaatsen is moeilijk te zeggen. Wel is het zo dat de verdeling van deze plaatsen niet erg verspreid is. In veel steden zijn deze plekken over een of enkele parkeerterreinen verdeeld. Dit zou uitgebreider moeten worden. Een verplichting van een minimum aantal parkeerplaatsen per parkeerterrein of garage zou een goede oplossing zijn.</p>
   </section>
 </template>
 
@@ -98,7 +107,7 @@ export default {
 
   p {
     font-size: 1.1em;
-    margin: 0 50px 50px;
+    margin: 0 50px 40px;
 
   }
 
