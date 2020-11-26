@@ -1,5 +1,6 @@
 <template>
-  <div>{{ currentColumn }}</div>
+  <h3>Rolstoel toegankelijke parkeerplaatsen in {{ currentColumn }}</h3>
+
   <div class="btn-group">
     <button @click="updateAxis">Steden</button>
     <button @click="updateAxis">Provincies</button>
@@ -20,9 +21,9 @@ import {
 import { ref } from "vue";
 
 const width = 960;
-const height = 500;
+const height = 700;
 
-const margin = { top: 20, right: 20, bottom: 60, left: 100 };
+const margin = { top: 20, right: 20, bottom: 60, left: 150 };
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 
@@ -100,7 +101,7 @@ export default {
       .attr('transform', `translate(0, ${innerHeight})`)
       .append('text')
         .attr('y', 50)
-        .attr('x', innerHeight / 2 + 80)
+        .attr('x', innerHeight / 2 + 90)
         .attr('class', 'label')
         .text('Aantal parkeerplaatsen')
 
@@ -118,8 +119,8 @@ export default {
         console.log(data)
         select('.tooltip').html(
           data.parkingAreas ?
-          '<h3>Parkeerlocaties:</h3>' + `${data.parkingAreas.map(item =>'<p>' + item.road + ' (' + item.postcode + ')' + ': ' + item.capacity + '</p>')}` :
-          '<h3>Capaciteit steden:</h3>' + `${data.citiesInState.map(item =>'<p>' + item.city + ': ' + item.capacity + '</p>')}`
+          '<h4>Parkeerlocaties:</h4>' + `${data.parkingAreas.map(item =>'<p>' + item.road + ' (' + item.postcode + ')' + ': ' + item.capacity + '</p>')}` :
+          '<h4>Capaciteit steden:</h4>' + `${data.citiesInState.map(item =>'<p>' + item.city + ': ' + item.capacity + '</p>')}`
         )
         .style('left', `${e.pageX}px`)
         .style('top', `${e.pageY - 28}px`)
@@ -134,9 +135,20 @@ export default {
 };
 </script>
 <style>
-.label {
-  fill: black;
+h3 {
+  font-family: times;
   font-size: 1.5em;
+  margin: 0 50px 10px;
+}
+
+h4 {
+  margin: 5px 0 10px 10px;
+  text-align: left;
+}
+
+text {
+  font-size: 1.5em;
+  font-family: Avenir;
 }
 
 button {
@@ -149,4 +161,27 @@ button {
 button:focus {
   border: 2px solid orange;
 }
+
+svg {
+  margin-bottom: 25px;
+}
+
+.label {
+  fill: black;
+  font-size: 2em;
+}
+
+.rect:hover {
+  transition: 0.5s all;
+  fill: orange;
+}
+
+.btn-group {
+  padding: 0;
+  /*margin: 0 auto;*/
+  margin: 0 50px 10px;
+  width: 200px;
+}
+
+
 </style>

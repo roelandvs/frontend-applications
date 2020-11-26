@@ -1,8 +1,8 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/calculator">Calculator</router-link> |
-    <router-link to="/fetching">Fetching</router-link>
+<!--     <router-link to="/">Home</router-link> |
+    <router-link to="/calculator">Calculator</router-link> | -->
+    <router-link to="/">Fetching</router-link>
   </div>
   <router-view />
 </template>
@@ -29,11 +29,6 @@
   color: #42b983;
 }
 
-h3 {
-  margin: 5px 0 10px 10px;
-  text-align: left;
-}
-
 .tooltip {
   pointer-events: none;
   position: absolute;
@@ -42,7 +37,8 @@ h3 {
   background-color: white;
   border: 2px solid lightgrey;
   border-radius: 10px;
-  transition: 0.5s all;
+  transition: 0.3s all;
+  min-width: 170px;
 }
 
 .tooltip > p {
@@ -54,11 +50,5 @@ h3 {
   text-align: left;
   border-radius: 10px;
 }
-
-.rect:hover {
-  transition: 0.5s all;
-  fill: orange;
-}
-
 
 </style>
