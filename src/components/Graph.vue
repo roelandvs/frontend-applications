@@ -22,7 +22,7 @@ import { ref } from "vue";
 const width = 960;
 const height = 500;
 
-const margin = { top: 20, right: 20, bottom: 60, left: 125 };
+const margin = { top: 20, right: 20, bottom: 60, left: 100 };
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 
@@ -116,7 +116,11 @@ export default {
     g.selectAll(".rect")
       .on("mouseover", (e, data) => {
         console.log(data)
-        select('.tooltip').html('<h3>Parkeerlocaties:</h3>' + `${data.parkingAreas.map(item =>'<p>' + item.road + ' (' + item.postcode + ')' + ': ' + item.capacity + '</p>')}`)
+        select('.tooltip').html(
+          data.parkingAreas ?
+          '<h3>Parkeerlocaties:</h3>' + `${data.parkingAreas.map(item =>'<p>' + item.road + ' (' + item.postcode + ')' + ': ' + item.capacity + '</p>')}` :
+          '<h3>Capaciteit steden:</h3>' + `${data.citiesInState.map(item =>'<p>' + item.city + ': ' + item.capacity + '</p>')}`
+        )
         .style('left', `${e.pageX}px`)
         .style('top', `${e.pageY - 28}px`)
         .style('opacity', .9)
@@ -129,3 +133,20 @@ export default {
   }
 };
 </script>
+<style>
+.label {
+  fill: black;
+  font-size: 1.5em;
+}
+
+button {
+  border-radius: 3px;
+  margin: 0 2px;
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+button:focus {
+  border: 2px solid orange;
+}
+</style>

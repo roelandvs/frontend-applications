@@ -30,7 +30,7 @@
 }
 
 h3 {
-  margin: 5px 0 5px 10px;
+  margin: 5px 0 10px 10px;
   text-align: left;
 }
 
