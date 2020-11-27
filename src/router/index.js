@@ -15,9 +15,9 @@ const routes = [
   // },
   {
     path: "/",
-    name: "Fetching",
+    name: "Artikel",
     component: () =>
-      import("../views/Fetching.vue")
+      import("../views/Artikel.vue")
   },
 ];
 

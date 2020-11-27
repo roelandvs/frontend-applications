@@ -59,7 +59,7 @@ const usefullColumns = [
 ];
 
 export default {
-  name: "Fetching",
+  name: "Artikel",
   components: { 
     Graph
   },
@@ -78,7 +78,6 @@ export default {
       .then(completedData => {
         data.value = completedData;
       })
-      // .then(console.log)
       .catch(error => console.log(error))
 
       return { data };
