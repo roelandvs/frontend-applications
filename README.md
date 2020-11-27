@@ -29,17 +29,9 @@ Used columns:
 
 After I've filtered the geo locations out of the datasets I fetch the informations about the geo locations using a reversed geocoding API: [OpenCage Geocoding API](https://opencagedata.com/api)
 
-## Functional Programming
-In this project I try to stick to FP principles. I'm doing this by using:
-- `pure function`
-- using higher order functions like: `filter()`, `reduce()` and `map()`
-
-and avoinding:
-- `shared state`
-- `mutable data`
-- `side-effects`
-
-If you would like more information about the FP principles I'm using you could check: [this page](rontend-data/wiki/Functional-Programming), and you would like more explanation about the code you could check [this page](https://github.com/roelandvs/frontend-data/wiki/Cleaning-the-Data).
+## Preview of data visualisation
+<img width="1002" alt="Schermafbeelding 2020-11-27 om 11 47 00" src="https://user-images.githubusercontent.com/59770136/100441156-4d07e700-30a6-11eb-82eb-df3b827ec581.png">
+https://roeland-fa.netlify.app/#/
 
 ## Installation Guide
 Create a directory using your terminal:
@@ -57,15 +49,12 @@ Install this project:
 git clone https://github.com/roelandvs/frontend-data.git
 ```
 
-## Preview of data visualisation
-<img width="700" alt="Schermafbeelding 2020-11-12 om 21 58 21" src="https://user-images.githubusercontent.com/59770136/98995976-75ce9f00-2532-11eb-9074-a59d2339ca48.png">  
-https://roeland-fa.netlify.app/#/
-
 ## Sources
 - [D3](https://www.youtube.com/watch?v=NlBt-7PuaLk&ab_channel=CurranKelleher)
 - [Functional Programming]( https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0#:~:text=Functional%20programming%20(often%20abbreviated%20FP,state%20flows%20through%20pure%20functions )
 - [Map, Filter, Reduce](https://developer.mozilla.org/nl/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 - [OpenCage GeoCoding API](https://opencagedata.com/api)
+- [Vue installation](https://cli.vuejs.org/guide/)
 
 Received help from:
 - Vincent van Leeuwen
