@@ -9,7 +9,7 @@ More information about the research question is in the [Wiki](https://github.com
 This project is made to create an interactive datavisualisation of the research question. In this project the data of RDW is being filtered and cleaned, and then a interactive chart is made using D3.
 
 ## Which features have I used?
-The features of D3 are not yet implemented in this project. The interactivity is not made yet and updating the data is unfortunately not yet possible. The Functional Programming part is implemented in this project.
+This project uses the framework Vue to build the article. To make and update the datavisualisation it implements the D3 library. The datavisualisation contains an update function to switch between an overview of wheelchair accessable parking spaces in cities and in counties. It also contains an tooltip that show the individual location and capacitty of parkinig spaces.
 
 ## Which data have I used?
 The datasets I'm using in this project are from RDW. I'm combining two datasets to get the information I need.
