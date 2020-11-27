@@ -60,9 +60,6 @@ export async function mergeGeoData(RDWdataset, geoData) {
   // const geoDatasets = await fetch("http://209.250.254.119")
   //   .then(response => response.json())
 
-  // console.log('geo', geoDatasets)
-  // console.log('RDW', RDWdataset)
-
   return RDWdataset.map(entry => {
     let geoItem = geoData.find(
       item => item.id === entry.areaid
@@ -73,14 +70,6 @@ export async function mergeGeoData(RDWdataset, geoData) {
       return mergedItem;  
     }
   }).filter(entry => entry !== undefined);
-
-  // return RDWdataset.reduce((acc, cur, i) => {
-  //   const mergedItem = {...cur, ...geoDataset[i]};
-  //   if(i <= 1002) {
-  //     acc.push(mergedItem);
-  //   }
-  //   return acc;
-  // }, []);
 };
 
 export function filterAllEntries(dataset) {
@@ -89,13 +78,10 @@ export function filterAllEntries(dataset) {
 
     if(item.cityInfo.town) {
       city = item.cityInfo.town;
-      // console.log('town', city)
     } else if(item.cityInfo.village) {
       city = item.cityInfo.village;
-      // console.log('village', city)
     } else if(item.cityInfo.city){
       city = item.cityInfo.city;
-      // console.log('city', city)
     }
 
     let cleanObject = {

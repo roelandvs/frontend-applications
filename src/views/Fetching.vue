@@ -95,13 +95,13 @@ export default {
 
   h1 {
     font-size: 3em;
-    font-family: times;
+    font-family: Times;
     margin: 0 50px 20px;
   }
 
   h2 {
     font.size: 2em;
-    font-family: times;
+    font-family: Times;
     margin: 0 50px 10px;
   }
 

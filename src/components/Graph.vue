@@ -38,10 +38,8 @@ export default {
       //target is the source of event
       if (e.target.innerText === "Steden") {
         this.currentColumn = "Steden"
-        // console.log('Steden')
       } else {
         this.currentColumn = "Provincies"
-        // console.log('Provincies')
       }
     }
   },
@@ -75,18 +73,14 @@ export default {
     // Selects which dataset is being used
     let data = column === 'Steden' ? this.data[0] : this.data[1]
     const g = select('svg > g');
+    //bepaald wat de schaal is van de x-as
     const xScale = scaleLinear()
       .domain([0, max(data, row => row.capacity)])
       .range([0, innerWidth]);
 
+    //bepaald wat de schaal is van de y-as en of er state
     const yScale = scaleBand()
-      .domain(data.map(row => {
-        if (column === 'Steden') { 
-          return row.city
-        } else {
-          return row.state
-        }
-      }))
+      .domain(data.map(row => column === 'Steden' ?  row.city : row.state))
       .range([0, innerHeight])
       .padding(0.2)
 
@@ -116,7 +110,6 @@ export default {
 
     g.selectAll(".rect")
       .on("mouseover", (e, data) => {
-        console.log(data)
         select('.tooltip').html(
           data.parkingAreas ?
           '<h4>Parkeerlocaties:</h4>' + `${data.parkingAreas.map(item =>'<p>' + item.road + ' (' + item.postcode + ')' + ': ' + item.capacity + '</p>')}` :
